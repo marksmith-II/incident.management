@@ -1,0 +1,56 @@
+{
+  "name": "incident_management",
+  "version": "1.0.0",
+  "description": "Incident Management Application",
+  "repository": "<Add your repository here>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@sap-cloud-sdk/http-client": "^3.9.0",
+    "@sap-cloud-sdk/util": "^3.9.0",
+    "@sap/cds": "^7",
+    "@sap/cds-hana": "^2",
+    "@sap/low-code-event-handler": "^1.2.4",
+    "@sap/mdk-tools": "^1.0.2",
+    "@sap/xsenv": ">=3.3.2 <3.3.3",
+    "@sap/xssec": "^3.6.0",
+    "express": "^4",
+    "hdb": "^0.19.7",
+    "passport": "^0.7.0"
+  },
+  "devDependencies": {
+    "@cap-js/sqlite": "^1",
+    "@sap/ux-specification": "^1.108.20",
+    "axios": "^1.6.2",
+    "chai": "^4.3.10",
+    "chai-as-promised": "^7.1.1",
+    "chai-subset": "^1.6.0",
+    "jest": "^29.7.0",
+    "sqlite3": "^5.1.6"
+  },
+  "scripts": {
+    "start": "cds-serve",
+    "watch-incident_management.Incidents": "cds watch --open incident_management.Incidents/webapp/index.html?sap-ui-xx-viewCache=false",
+    "test": "jest"
+  },
+  "cds": {
+    "requires": {
+      "[production]": {
+        "db": "hana"
+      },
+      "app-service": {
+        "impl": "@sap/low-code-event-handler"
+      },
+      "auth": {
+        "kind": "xsuaa"
+      }
+    },
+    "features": {
+      "fetch_csrf": true
+    }
+  },
+  "lcap": true,
+  "sapux": [
+    "app/incident_management.Incidents"
+  ]
+}
